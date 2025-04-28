@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+        <link
+            href="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="styles.css" />
+        <script src="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js"></script>
+        <title>Septa Live</title>
+    </head>
+    <body>
+        <!-- <h1>Map</h1> -->
+        <div id="routes" class="p-4">
+            <div>
+                <img
+                    src="https://cdn-icons-png.flaticon.com/512/50/50982.png"
+                    alt="Septa Logo"
+                    class="w-25"
+                />
+                <h1>Septa Live</h1>
+            </div>
+            <div class="mb-3">
+                <label for="septa-routes" class="form-label"
+                    >Search Available Vehicle(s):</label
+                >
+                <div class="search-container">
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="septa-routes"
+                        id="search"
+                        onchange="queryRoutes(this.value)"
+                        aria-describedby="helpId"
+                        placeholder="Route/Line"
+                    />
+                    <input
+                        type="submit"
+                        class="btn btn-outline-dark"
+                        value="Search"
+                    />
+                </div>
+            </div>
+
+            <div id="routes-list">
+                <!--Dynamically generated from Septa API-->
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title placeholder-wave col-5">
+                            <span class="placeholder col-7"></span>
+                        </h5>
+                        <p class="placeholder-glow">
+                            <span class="placeholder col-6"></span>
+                        </p>
+                        <p class="placeholder-glow">
+                            <span class="placeholder col-12"></span>
+                        </p>
+                        <button
+                            type="button"
+                            class="btn btn-dark disabled placeholder-wave"
+                            style="width: 70px; height: 40px"
+                        >
+                            <span
+                                class="w-25"
+                                style="width: 100px; height: 50px"
+                            ></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title placeholder-wave col-5">
+                            <span class="placeholder col-7"></span>
+                        </h5>
+                        <p class="placeholder-glow">
+                            <span class="placeholder col-6"></span>
+                        </p>
+                        <p class="placeholder-glow">
+                            <span class="placeholder col-12"></span>
+                        </p>
+                        <button
+                            type="button"
+                            class="btn btn-dark disabled placeholder-wave"
+                            style="width: 70px; height: 40px"
+                        >
+                            <span
+                                class="w-25"
+                                style="width: 100px; height: 50px"
+                            ></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title placeholder-wave col-5">
+                            <span class="placeholder col-7"></span>
+                        </h5>
+                        <p class="placeholder-glow">
+                            <span class="placeholder col-6"></span>
+                        </p>
+                        <p class="placeholder-glow">
+                            <span class="placeholder col-12"></span>
+                        </p>
+                        <button
+                            type="button"
+                            class="btn btn-dark disabled placeholder-wave"
+                            style="width: 70px; height: 40px"
+                        >
+                            <span
+                                class="w-25"
+                                style="width: 100px; height: 50px"
+                            ></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title placeholder-wave col-5">
+                            <span class="placeholder col-7"></span>
+                        </h5>
+                        <p class="placeholder-glow">
+                            <span class="placeholder col-6"></span>
+                        </p>
+                        <p class="placeholder-glow">
+                            <span class="placeholder col-12"></span>
+                        </p>
+                        <button
+                            type="button"
+                            class="btn btn-dark disabled placeholder-wave"
+                            style="width: 70px; height: 40px"
+                        >
+                            <span
+                                class="w-25"
+                                style="width: 100px; height: 50px"
+                            ></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+            <p class="text-center">Created by Kyle Roshanravan | v3.2025</p>
+        </div>
+        <div id="route-info">
+            <!--Dynamically generated-->
+        </div>
+        <div id="map"></div>
+
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"
+        ></script>
+        <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
+
+<!--
+
+To-do list:
+
+- Responsive Design (wth even/equalized widths):
+    - On Desktop: show all menus (routes, vehicles, map, etc.)
+    - On Tablet: show only two menus (if a route is selected, show only vehicles and map; or if no route is selected, just routes and map)
+    - On Mobile: show only one menu
+
+
+-->
